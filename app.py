@@ -9,7 +9,7 @@ initialize_db()
 @app.route('/')
 def index():
     users = read()
-    return render_template('/templates/index.html', users=users)
+    return render_template('/index.html', users=users)
 
 @app.route('/create', methods=(['GET', 'POST']))
 def create_user():
@@ -19,8 +19,8 @@ def create_user():
         profession = request.form['profession']
         phone = request.form['phone']
         create(name, int(age), profession, phone)
-        return redirect(url_for('/templates/index'))
-    return render_template('/templates/create.html')
+        return redirect(url_for('/index'))
+    return render_template('/create.html')
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update_user(id):
@@ -34,8 +34,8 @@ def update_user(id):
         profession = request.form['profession']
         phone = request.form['phone']
         update(id, name, int(age), profession, phone)
-        return redirect(url_for('/templates/index'))
-    return render_template('/templates/update.html', user=user)
+        return redirect(url_for('/index'))
+    return render_template('/update.html', user=user)
 
 @app.route('/delete/<int:id>', methods=['GET'])
 def delete_user(id):
