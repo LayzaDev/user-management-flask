@@ -10,5 +10,14 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "CARGO_NET_GIT_FETCH_WITH_CLI": "true"
+    },
+    "scripts": {
+      "preinstall": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+    }
+  }
 }
+
